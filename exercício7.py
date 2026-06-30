@@ -15,7 +15,8 @@ while m < n:
     #total = total + int(input("digite a nota: "))
     total += int(input("digite a nota: "))
     m = m + 1
-if total < 6:
+media = total/n
+if media < 6:
     print ("reprovado")
 else:
     print ("aprovado!")
