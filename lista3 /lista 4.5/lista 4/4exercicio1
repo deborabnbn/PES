@@ -1,0 +1,22 @@
+# 1 – Implemente um algoritmo com uma lista de nomes de bairros de Garopaba. O nome
+# do primeiro bairro deve ser adicionado manualmente (no próprio programa), em seguida,
+# deve ser solicitado ao usuário para cadastrar o nome de mais 5 bairros. Ao final, o
+# programa deve exibir o nome de todos os bairros cadastrados na tela.
+
+# bairros = ["palhocinha"]
+
+
+bairros = ["palhocinha"]
+
+indice = 0
+
+while indice < 5:
+    bairro = input("digite o nome do bairro: ")
+    bairros.append(bairro)
+    indice = indice + 1 
+
+indice = 0 
+while indice < len(bairros):
+    print (bairros[indice])
+    indice = indice + 1 
+
