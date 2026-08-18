@@ -23,7 +23,7 @@ indice = 0
 while indice < len(cidades):
     if cidades[indice] == remover:
         posicao = indice
-        indice = indice + 1 
+    indice = indice + 1 
        
 if posicao != -1:
     print("Removendo cidade...")
