@@ -15,6 +15,16 @@
 # 0 - Sair
 # Opção:
 
+def listar_notas(lista_notas):
+    print("Notas:")
+    indice = 0
+    while indice < len(lista_notas):
+        print(" -", lista_notas[indice])
+        indice = indice + 1
+
+    if len(lista_notas) == 0:
+        print ("- Lista está vazia")
+
 notas = []
 total_notas=0 
 soma_notas=0
@@ -36,6 +46,7 @@ while opcao != 0:
         soma_notas += nota
 
     elif opcao == 2:
+        listar_notas(notas)
         excluir_nota = input("digite nota que você deseja excluir: ")
         
         indice =  0
@@ -51,14 +62,7 @@ while opcao != 0:
             print("nota removida!")
 
     elif opcao == 3:
-
-        indice = 0
-        while indice < len(notas):
-            print(notas[indice])
-            indice = indice + 1
-
-        if len(notas) == 0:
-            print ("a lista está vazia")
+        listar_notas(notas)
 
     elif opcao == 4: 
         media = soma_notas/total_notas
@@ -66,7 +70,7 @@ while opcao != 0:
 
 
         if media >= 6:
-            print("aluno aprova!")
+            print("aluno aprovado!")
         else: 
             print("reprovado")
 
