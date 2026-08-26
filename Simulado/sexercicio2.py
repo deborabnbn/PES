@@ -11,9 +11,9 @@ while contador < 15:
             print("Este número ja está na lista")
         else:
             lista.append(num)
+            contador = contador +1
     else:
         print ("esse número não é aceito")
-    contador = contador +1 
 lista.sort()
 print (lista)
 

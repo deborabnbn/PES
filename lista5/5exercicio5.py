@@ -21,21 +21,26 @@ else:
 
 # b) uma função que receba uma lista e retorne o maior valor;
 def maior_valor(lista):
+    if len(lista) == 0:
+        return -1
     indice = 0
     maior_vl = lista[0]
+
     while indice < len(lista):
         if lista[indice] > maior_vl:
             maior_vl = lista[indice]
-        indice = indice +1
+        indice = indice + 1
     return maior_vl
-lista = [1, 2 ,3, 6, 4]
-if len(lista) == 0: 
-    return -1 
+
+lista = [1, 2, 3, 6, 4]
 resultado = maior_valor(lista)
 print(resultado)
 
 # c) uma função que receba uma lista e retorne o menor valor;
 def menor_valor(lista):
+    if len(lista) == 0:
+        return -1
+    
     indice = 0
     menor_vl = lista[0]
     while indice < len(lista):
@@ -49,6 +54,9 @@ print(resultado)
 
 # d) uma função que receba uma lista e retorne o valor médio.
 def valor_medio(lista):
+    if len(lista) == 0:
+        return -1
+    
     indice = 0 
     soma = 0
     quant_total = 0
@@ -62,3 +70,18 @@ def valor_medio(lista):
 lista = [7, 8, 9]
 resultado = valor_medio(lista)
 print(resultado)
+
+lista_vazia = []
+lista_elementos = [1, 2, 3, 6, 4]
+
+print("LISTA VAZIA")
+print(true_or_false(lista_vazia))
+print(maior_valor(lista_vazia))
+print(menor_valor(lista_vazia))
+print(valor_medio(lista_vazia))
+
+print("\nLISTA COM ELEMENTOS")
+print(true_or_false(lista_elementos))
+print(maior_valor(lista_elementos))
+print(menor_valor(lista_elementos))
+print(valor_medio(lista_elementos))
