@@ -6,34 +6,27 @@
 # “P.M.”. Inclua um loop que permita que o usuário repita esse cálculo para novos valores
 # de entrada todas as vezes que desejar.
 
-def converter_hora(hora):
-    hora = int(hora)
 
-    if hora > 12:
-       hora = hora -12
-       hora = "PM " + str(hora)
-    else:
-       hora = "AM " + str(hora)
-    
-    return hora
-
-def converter_hora_minuto(hora_minuto): # "13:04"
-   hora = hora_minuto.split(":")[0] # "13"
-   minuto = hora_minuto.split(":")[1] # "04"
-   
-   hora = converter_hora(hora) 
-
-   return hora + ":" + minuto
-
-
-contador = 0
-while contador != -1:
-    
-    
-
-
-def converter():
-
- hora = float(input("digite o horário: "))
- if hora > 12.00:
- 
+def separar(horas):
+   lh = horas.split(":")
+   return lh
+def horario(hora):
+   if hora<=11:
+       am=True
+   else:
+       am=False
+   return am
+while True:
+   h=(input("Digite a hora (HH:MM) ou digite 0 para sair:"))
+   if h!="0":
+       lista=separar(h)
+       ho=int(lista[0])
+       mi=lista[1]
+       ho2=horario(ho)
+       if ho2==True:
+           print(f'{ho}:{mi} A.M')
+       else:
+           ho=ho-12
+           print(f'{ho}:{mi} P.M')
+   else:
+       exit(0)
