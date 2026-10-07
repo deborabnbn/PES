@@ -8,7 +8,7 @@ class Livro:
         self.autor = autor
 
     def descricao(self):
-        print("O livro", self.titulo, "foi ecrito por", self.autor)
+        print("O livro", self.titulo, "foi escrito por", self.autor)
 
     
 Livro1 = Livro("Todas as suas imperfeições", "Colen Hover")

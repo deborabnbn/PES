@@ -12,7 +12,7 @@ class Carro:
         self.cor = cor
 
     def Pintar (self, nova_cor ):
-        nova_cor = input("Digite a nova cor do carro: ")
+        
         self.cor = nova_cor
 
     def mostrar_cor (self):
