@@ -10,7 +10,7 @@ class Pessoa:
         self.peso = peso
 
     def dados (self):
-        return ("Nome: " + self.nome + "Idade: " + str(self.idade) + "altura:" + str(self.altura) + "Peso: " + str(self.peso))
+        return ("Nome: " + self.nome + " Idade: " + str(self.idade) + " Altura: " + str(self.altura) + " Peso: " + str(self.peso))
 
 
 lista_pessoa = []
@@ -19,6 +19,7 @@ print ("""
       1- Cadastrar
       2- Listar
       3- Excluir
+      4- Atualizar
       0- Sair
 """)
 
@@ -40,20 +41,41 @@ while opcao != 0:
     elif opcao == 2:
         for pessoa in lista_pessoa:
             print (pessoa.dados())
-        
-    elif opcao ==3:
-        remover_pessoa = input("Digite o nome da pessoa que vc quer remover: ")
-        remove = False
-        for pessoa in lista_pessoa:
-            if pessoa.nome == remover_pessoa:
-                lista_pessoa.remove(remover_pessoa)
-                remove = True
-            
-        if remove:
-             print("Pessoa removida!")
+
+    elif opcao == 3:
+        excluir_pessoa = input("Digite o nome da pessoa que você deseja excluir: ")
+        indice_porcurando = -1
+        indice = 0
+
+        while indice < len(lista_pessoa):
+            if lista_pessoa[indice].nome == excluir_pessoa:
+                indice_porcurando = indice
+            indice = indice + 1
+
+        if indice_porcurando == -1:
+            print("Pessoa não encontrada.")
         else:
-            print("pessoa não encontrada")
+            lista_pessoa.pop(indice_porcurando)
+            print("Pessoa removida com sucesso!")
+
+    elif opcao == 4:
+        atualizar_pessoa = input("Digite o nome da pessoa que você deseja atualizar: ")
+        indice_porcurando = -1
+        indice = 0
+
+        while indice < len(lista_pessoa):
+            if lista_pessoa[indice].nome == atualizar_pessoa:
+                indice_porcurando = indice
+            indice = indice + 1
+
+        if indice_porcurando == -1:
+            print("Pessoa não encontrada.")
+        else:
+            lista_pessoa[indice_porcurando].idade = int(input("Digite a nova idade: "))
+            lista_pessoa[indice_porcurando].altura = float(input("Digite a nova altura: "))
+            lista_pessoa[indice_porcurando].peso = float(input("Digite o novo peso: "))
+            print("Pessoa atualizada com sucesso!")
+
     elif opcao == 0:
         print ("encerrando sistema")
-
         

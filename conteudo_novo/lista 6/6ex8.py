@@ -27,11 +27,11 @@ class Professor:
         return (" Matricula: " + str(self.matricula) + " Nome: " + self.nome + " Sobrenome: " + self.sobrenome + " Idade: " + str(self.idade) + " Especialização: " + self.especializacao)
 
 class Aluno:
-    def __init__ (self, matricula2, nome2, sobrenome2, idade2):
-        self.matricula = matricula2
-        self.nome = nome2
-        self.sobrenome = sobrenome2
-        self.idade = idade2
+    def __init__ (self, matricula, nome, sobrenome, idade):
+        self.matricula = matricula
+        self.nome = nome
+        self.sobrenome = sobrenome
+        self.idade = idade
 
     def dados_aluno (self):
         return ("Matricula: " + str(self.matricula) + " Nome: " + self.nome + " Sobrenome: " + self.sobrenome + " Idade: " + str(self.idade))
@@ -61,12 +61,12 @@ while opcao != 0:
     opcao = int(input("digite uma opção: "))
 
     if opcao == 1:
-        matricula2 = int(input("Digite a matricula do aluno: "))
-        nome2  = input("Digite o nome do aluno: ")
-        sobrenome2 = input("Digite o sobrenome da pessoa: ")
-        idade2 = int(input("Digite a idade do aluno: "))
+        matricula = int(input("Digite a matricula do aluno: "))
+        nome = input("Digite o nome do aluno: ")
+        sobrenome = input("Digite o sobrenome da pessoa: ")
+        idade = int(input("Digite a idade do aluno: "))
         
-        aluno = Aluno(matricula2, nome2, sobrenome2, idade2)
+        aluno = Aluno(matricula, nome, sobrenome, idade)
         lista_alunos.append(aluno)
 
         print ("Aluno cadastrado com sucesso!")
@@ -90,6 +90,124 @@ while opcao != 0:
     elif opcao == 4:
         for professor in lista_professores:
             print (professor.dados_professor())
+
+    elif opcao == 5:
+        alterar_estudante = int(input("Digite a matrícula do estudante que você está procurando: "))
+        indice_procurando = -1
+        indice = 0
+
+        while indice < len(lista_alunos):
+            if lista_alunos[indice].matricula == alterar_estudante:
+                indice_procurando = indice
+            indice = indice + 1
+
+        if indice_procurando == -1:
+            print("Pessoa não encontrada.")
+        else:
+            lista_alunos[indice_procurando].matricula = int(input("Digite a nova matrícula: "))
+            lista_alunos[indice_procurando].nome = input("Digite o novo nome: ")
+            lista_alunos[indice_procurando].sobrenome = input("Digite o novo sobrenome: ")
+            lista_alunos[indice_procurando].idade = int(input("Digite a nova idade: "))
+            print("Aluno atualizado com sucesso!")
+
+    elif opcao == 6:
+        alterar_estudante = input("Digite o nome do estudante que você está procurando: ")
+        indice_procurando = -1
+        indice = 0
+
+        while indice < len(lista_alunos):
+            if lista_alunos[indice].nome == alterar_estudante:
+                indice_procurando = indice
+            indice = indice + 1
+
+        if indice_procurando == -1:
+            print("Aluno não encontrada.")
+        else:
+            lista_alunos[indice_procurando].matricula = int(input("Digite a nova matrícula: "))
+            lista_alunos[indice_procurando].nome = input("Digite o novo nome: ")
+            lista_alunos[indice_procurando].sobrenome = input("Digite o novo sobrenome: ")
+            lista_alunos[indice_procurando].idade = int(input("Digite a nova idade: "))
+            print("Aluno atualizado com sucesso!")
+
+    elif opcao == 7:
+        alterar_professor = int(input("Digite a matrícula do professor que você está procurando: "))
+        indice_procurando = -1
+        indice = 0
+
+        while indice < len(lista_professores):
+            if lista_professores[indice].matricula == alterar_professor:
+                indice_procurando = indice
+            indice = indice + 1
+
+        if indice_procurando == -1:
+            print("Professor não encontrado.")
+        else:
+            lista_professores[indice_procurando].matricula = int(input("Digite a nova matrícula: "))
+            lista_professores[indice_procurando].nome = input("Digite o novo nome: ")
+            lista_professores[indice_procurando].sobrenome = input("Digite o novo sobrenome: ")
+            lista_professores[indice_procurando].idade = int(input("Digite a nova idade: "))
+            lista_professores[indice_procurando].especializacao = (input("Digite a nova especializacao: "))
+            print("Professor atualizado com sucesso!")
+
+    elif opcao == 8:
+        alterar_professor = input("Digite o nome do professor que você está procurando: ")
+        indice_procurando = -1
+        indice = 0
+
+        while indice < len(lista_professores):
+            if lista_professores[indice].nome == alterar_professor:
+                indice_procurando = indice
+            indice = indice + 1
+
+        if indice_procurando == -1:
+            print("Professor não encontrado.")
+        else:
+            lista_professores[indice_procurando].matricula = int(input("Digite a nova matrícula: "))
+            lista_professores[indice_procurando].nome = input("Digite o novo nome: ")
+            lista_professores[indice_procurando].sobrenome = input("Digite o novo sobrenome: ")
+            lista_professores[indice_procurando].idade = int(input("Digite a nova idade: "))
+            lista_professores[indice_procurando].especializacao = (input("Digite a nova especializacao: "))
+            print("Professor atualizado com sucesso!")
+
+    elif opcao == 9:
+        excluir_aluno = input("Digite o nome do aluno que você deseja excluir: ")
+        indice_porcurando = -1
+        indice = 0
+
+        while indice < len(lista_alunos):
+            if lista_alunos[indice].nome == excluir_aluno:
+                indice_porcurando = indice
+            indice = indice + 1
+
+        if indice_porcurando == -1:
+            print("Aluno não encontrada.")
+        else:
+            lista_alunos.pop(indice_porcurando)
+            print("Aluno removido com sucesso!")
+
+    elif opcao == 10:
+        excluir_professor = input("Digite o nome do professor que você deseja excluir: ")
+        indice_porcurando = -1
+        indice = 0
+
+        while indice < len(lista_professores):
+            if lista_professores[indice].nome == excluir_professor:
+                indice_porcurando = indice
+            indice = indice + 1
+
+        if indice_porcurando == -1:
+            print("Professor não encontrado.")
+        else:
+            lista_professores.pop(indice_porcurando)
+            print("Professor removido com sucesso!")
+        
+    
+    elif opcao == 0:
+        print ("encerrando sistema")
+
+
+        
+
 
 
 
